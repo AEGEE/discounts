@@ -10,6 +10,7 @@ services:
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: ${PW_POSTGRES}
+    
     oms-discounts:
         build:
             context: ./$PATH_OMS_DISCOUNTS/..
@@ -26,6 +27,12 @@ services:
         environment:
             BUGSNAG_KEY: bbef84ab99c91665262f672ba6507a2d
             PG_PASSWORD: ${PW_POSTGRES}
+        healthcheck:
+            test: ["CMD", "curl", "--fail", "http://localhost/healthcheck"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+            start_period: 40s
         labels:
             - "traefik.backend=oms-discounts"
             - "traefik.port=8084"
@@ -39,3 +46,8 @@ volumes:
         driver: "local"
     shared:
         driver: "local"
+
+networks:
+    default:
+        external:
+            name: OMS
