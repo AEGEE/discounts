@@ -1,5 +1,5 @@
 # Discounts module
-[![Build Status](https://travis-ci.org/AEGEE/discounts.svg)](https://travis-ci.org/AEGEE/discounts)
+![CircleCI](https://img.shields.io/circleci/build/github/AEGEE/discounts)
 ![Codecov branch for master](https://img.shields.io/codecov/c/github/AEGEE/discounts.svg)
 
 
