@@ -23,7 +23,7 @@ const Category = sequelize.define('category', {
         defaultValue: '',
         validate: {
             isValid(categoriesValue) {
-                const { error, value } = Joi.validate(categoriesValue, categoriesSchema);
+                const { error, value } = schema.validate(categoriesValue, categoriesSchema);
                 if (error) {
                     throw error;
                 }
