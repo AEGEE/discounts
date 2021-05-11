@@ -1,5 +1,5 @@
 # FIXME use alpine
-FROM node:14.16.0
+FROM node:14.16.1
 
 RUN mkdir -p /usr/app/src \
 	&& mkdir -p /usr/app/media \
@@ -21,7 +21,7 @@ ENV PATH="/home/node/.npm-global/bin:${PATH}"
 RUN npm install -g nodemon@2.0.7
 RUN npm install -g bunyan@1.8.15
 RUN npm cache clean --force
-RUN npm install
+RUN npm ci
 
 CMD sh /usr/app/scripts/bootstrap.sh && nodemon -e "js,json" lib/run.js
 
