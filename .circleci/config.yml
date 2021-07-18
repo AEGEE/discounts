@@ -6,11 +6,13 @@ orbs:
 version: 2.1
 jobs:
   test:
-    machine:
-      image: ubuntu-2004:202101-01
+    docker:
+      - image: cimg/node:14.17.3
+      - image: circleci/postgres:10.17
+        environment:
+          POSTGRES_PASSWORD: 5ecr3t
     steps:
       - checkout
-      - run: docker run --name postgres -e POSTGRES_PASSWORD='5ecr3t' -p 5432:5432 -d postgres:10.16
       - run:
           name: Install Node
           command: |
