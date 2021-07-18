@@ -13,13 +13,6 @@ jobs:
           POSTGRES_PASSWORD: 5ecr3t
     steps:
       - checkout
-      - run:
-          name: Install Node
-          command: |
-            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
-            echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
-            nvm install v14.16.0
-            nvm alias default v14.16.0
       - node/install-packages
       - run: mkdir -p ~/reports/jest
       - run:
