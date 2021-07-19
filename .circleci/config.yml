@@ -80,8 +80,6 @@ jobs:
   docker-build-and-push:
     docker:
       - image: cimg/node:14.17.3
-    environment:
-      PACKAGE_VERSION: $(cat package.json | grep version | head -1 | awk -F= "{ print $2 }" | sed 's/[version:,\",]//g' | tr -d '[[:space:]]')
     steps:
       - checkout
       - setup_remote_docker:
