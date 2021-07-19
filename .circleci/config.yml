@@ -99,7 +99,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$(node -p 'require('\''./package.json'\'').version')` and `latest` has been pushed to Dockerhub."
+                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$(node -p \"require('./package.json').version\")` and `latest` has been pushed to Dockerhub."
                   }
                 }
               ]
