@@ -86,10 +86,10 @@ jobs:
           version: 20.10.6
       - node/install-packages
       - run: npx semantic-release
-      - run: echo $(node -p "require('./package.json').version") >> $VERSION
-      - run: docker build  --tag aegee/discounts:$VERSION --tag aegee/discounts:latest -f docker/discounts/Dockerfile .
+      - run: echo $(node -p "require('./package.json').version") >> $PACKAGE_VERSION
+      - run: docker build  --tag aegee/discounts:$PACKAGE_VERSION --tag aegee/discounts:latest -f docker/discounts/Dockerfile .
       - run: docker login --username $DOCKER_LOGIN --password $DOCKER_PASSWORD
-      - run: docker push aegee/discounts:$VERSION
+      - run: docker push aegee/discounts:$PACKAGE_VERSION
       - run: docker push aegee/discounts:latest
       - slack/notify:
           event: pass
@@ -100,7 +100,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$VERSION` and `latest` has been pushed to Dockerhub."
+                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$PACKAGE_VERSION` and `latest` has been pushed to Dockerhub."
                   }
                 }
               ]
