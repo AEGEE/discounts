@@ -81,7 +81,7 @@ jobs:
       - run: docker push aegee/discounts:latest
       - slack/notify:
           event: pass
-          template: success_tagged_deploy_1
+          template: basic_success_1
       - slack/notify:
           event: fail
           template: basic_fail_1
@@ -106,17 +106,16 @@ workflows:
       - test
   docker-build-and-push:
     jobs:
-      - docker-build-and-push
-  #     - docker-build-and-push:
-  #         filters:
-  #           branches:
-  #             only: master
+      - docker-build-and-push:
+          filters:
+            branches:
+              only: master
   audit:
-    # triggers:
-    #   - schedule:
-    #       cron: "0 0 * * 5"
-    #       filters:
-    #         branches:
-    #           only: master
+    triggers:
+      - schedule:
+          cron: "0 0 * * 5"
+          filters:
+            branches:
+              only: master
     jobs:
       - audit
