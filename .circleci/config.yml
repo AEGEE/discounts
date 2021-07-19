@@ -80,13 +80,14 @@ jobs:
   docker-build-and-push:
     docker:
       - image: cimg/node:14.17.3
+    environment:
+      PACKAGE_VERSION: $(node -p "require('./package.json').version")
     steps:
       - checkout
       - setup_remote_docker:
           version: 20.10.6
       - node/install-packages
       - run: npx semantic-release
-      - run: `export PACKAGE_VERSION=$(node -p "require('./package.json').version")` >> $BASH_ENV
       - run: docker build --tag aegee/discounts:$PACKAGE_VERSION --tag aegee/discounts:latest -f docker/discounts/Dockerfile .
       - run: docker login --username $DOCKER_LOGIN --password $DOCKER_PASSWORD
       - run: docker push aegee/discounts:$PACKAGE_VERSION
