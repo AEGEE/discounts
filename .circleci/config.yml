@@ -65,7 +65,18 @@ jobs:
       - run: npm audit --production
       - slack/notify:
           event: fail
-          template: basic_fail_1
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "The audit check for `$CIRCLE_PROJECT_REPONAME` has failed."
+                  }
+                }
+              ]
+            }
   docker-build-and-push:
     docker:
       - image: cimg/node:14.17.3
@@ -81,10 +92,32 @@ jobs:
       - run: docker push aegee/discounts:latest
       - slack/notify:
           event: pass
-          template: basic_success_1
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$(node -p "require('./package.json').version")` and `latest` has been pushed to Dockerhub."
+                  }
+                }
+              ]
+            }
       - slack/notify:
           event: fail
-          template: basic_fail_1
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` build and push has failed."
+                  }
+                }
+              ]
+            }
 
 workflows:
   version: 2
@@ -106,10 +139,11 @@ workflows:
       - test
   docker-build-and-push:
     jobs:
-      - docker-build-and-push:
-          filters:
-            branches:
-              only: master
+      - docker-build-and-push
+      # - docker-build-and-push:
+      #     filters:
+      #       branches:
+      #         only: master
   audit:
     triggers:
       - schedule:
