@@ -20,7 +20,7 @@ jobs:
           name: Run tests
           command: |
             TEST=$(circleci tests glob test/api/*.js | circleci tests split --split-by=timings)
-            JEST_JUNIT_OUTPUT_DIR=$HOME/reports/jest npm test:ci -- --reporters=default --reporters=jest-junit
+            JEST_JUNIT_OUTPUT_DIR=$HOME/reports/jest npm test:ci $TEST -- --reporters=default --reporters=jest-junit
       - run: ./node_modules/.bin/codecov
       - store_test_results:
           path: ~/reports
