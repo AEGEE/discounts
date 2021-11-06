@@ -66,7 +66,7 @@ jobs:
       - image: cimg/node:16.13.0
     steps:
       - checkout
-      - run: npm audit
+      - run: npm audit --production
       - slack/notify:
           event: fail
           custom: |
@@ -227,5 +227,11 @@ workflows:
             branches:
               only: master
   audit:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 5"
+          filters:
+            branches:
+              only: master
     jobs:
       - audit
