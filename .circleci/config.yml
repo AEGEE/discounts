@@ -227,11 +227,5 @@ workflows:
             branches:
               only: master
   audit:
-    triggers:
-      - schedule:
-          cron: "0 0 * * 5"
-          filters:
-            branches:
-              only: master
     jobs:
       - audit
