@@ -70,17 +70,43 @@ jobs:
       - slack/notify:
           event: fail
           custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "The audit check for `$CIRCLE_PROJECT_REPONAME` has failed."
+              {
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": ":x: The audit check for `$CIRCLE_PROJECT_REPONAME` has failed."
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Project*\n$CIRCLE_PROJECT_REPONAME"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Job Number*\n$CIRCLE_BUILD_NUM"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "actions",
+                    "elements": [
+                      {
+                        "type": "button",
+                        "text": {
+                          "type": "plain_text",
+                          "text": "Visit Job"
+                        },
+                        "value": "$CIRCLE_BUILD_URL"
+                      }
+                    ]
                   }
-                }
-              ]
-            }
+                ]
+              }
   docker-build-and-push:
     docker:
       - image: cimg/node:16.13.0
@@ -104,8 +130,34 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$PACKAGE_VERSION` and `latest` has been pushed to Dockerhub."
+                    "text": ":white_check_mark: The Docker image for `$CIRCLE_PROJECT_REPONAME` with tags `$PACKAGE_VERSION` and `latest` has been pushed to Dockerhub."
                   }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Project*\n$CIRCLE_PROJECT_REPONAME"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Job Number*\n$CIRCLE_BUILD_NUM"
+                    }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Visit Job"
+                      },
+                      "value": "$CIRCLE_BUILD_URL"
+                    }
+                  ]
                 }
               ]
             }
@@ -118,8 +170,34 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "The Docker image for `$CIRCLE_PROJECT_REPONAME` build and push has failed."
+                    "text": ":octagonal_sign: The Docker image for `$CIRCLE_PROJECT_REPONAME` build and push has failed."
                   }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Project*\n$CIRCLE_PROJECT_REPONAME"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Job Number*\n$CIRCLE_BUILD_NUM"
+                    }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Visit Job"
+                      },
+                      "value": "$CIRCLE_BUILD_URL"
+                    }
+                  ]
                 }
               ]
             }
