@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="68" failures="0" errors="0" time="7.116">
+  <testsuite name="Categories creation" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:44" time="1.057" tests="10">
+    <testcase classname="Categories creation should fail if user does not have rights" name="Categories creation should fail if user does not have rights" time="0.3">
+    </testcase>
+    <testcase classname="Categories creation should succeed if everything is okay" name="Categories creation should succeed if everything is okay" time="0.035">
+    </testcase>
+    <testcase classname="Categories creation should fail if name is not set" name="Categories creation should fail if name is not set" time="0.009">
+    </testcase>
+    <testcase classname="Categories creation should fail if discounts is not an array" name="Categories creation should fail if discounts is not an array" time="0.009">
+    </testcase>
+    <testcase classname="Categories creation should fail if discounts is an empty array" name="Categories creation should fail if discounts is an empty array" time="0.009">
+    </testcase>
+    <testcase classname="Categories creation should fail if discount is not an object" name="Categories creation should fail if discount is not an object" time="0.008">
+    </testcase>
+    <testcase classname="Categories creation should fail if discount&apos;s name is not set" name="Categories creation should fail if discount&apos;s name is not set" time="0.007">
+    </testcase>
+    <testcase classname="Categories creation should fail if discount&apos;s icon is not set" name="Categories creation should fail if discount&apos;s icon is not set" time="0.007">
+    </testcase>
+    <testcase classname="Categories creation should fail if discount&apos;s shortDescription is not set" name="Categories creation should fail if discount&apos;s shortDescription is not set" time="0.009">
+    </testcase>
+    <testcase classname="Categories creation should fail if discount&apos;s longDescription is not set" name="Categories creation should fail if discount&apos;s longDescription is not set" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations creation" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:45" time="0.525" tests="9">
+    <testcase classname="Integrations creation should fail if user does not have rights" name="Integrations creation should fail if user does not have rights" time="0.264">
+    </testcase>
+    <testcase classname="Integrations creation should succeed if everything is okay" name="Integrations creation should succeed if everything is okay" time="0.024">
+    </testcase>
+    <testcase classname="Integrations creation should fail if code is not set" name="Integrations creation should fail if code is not set" time="0.009">
+    </testcase>
+    <testcase classname="Integrations creation should fail if amount quota is not set" name="Integrations creation should fail if amount quota is not set" time="0.009">
+    </testcase>
+    <testcase classname="Integrations creation should fail if amount quota is not a number" name="Integrations creation should fail if amount quota is not a number" time="0.008">
+    </testcase>
+    <testcase classname="Integrations creation should fail if amount quota is negative" name="Integrations creation should fail if amount quota is negative" time="0.014">
+    </testcase>
+    <testcase classname="Integrations creation should fail if amount period is negative" name="Integrations creation should fail if amount period is negative" time="0.007">
+    </testcase>
+    <testcase classname="Integrations creation should fail if the code is taken already" name="Integrations creation should fail if the code is taken already" time="0.037">
+    </testcase>
+    <testcase classname="Integrations creation should fail if the quota period is invalid" name="Integrations creation should fail if the quota period is invalid" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="Codes claiming" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:46" time="0.521" tests="7">
+    <testcase classname="Codes claiming should fail if the integration is not found" name="Codes claiming should fail if the integration is not found" time="0.241">
+    </testcase>
+    <testcase classname="Codes claiming should fail if the user claimed codes already" name="Codes claiming should fail if the user claimed codes already" time="0.031">
+    </testcase>
+    <testcase classname="Codes claiming should fail if there are no codes" name="Codes claiming should fail if there are no codes" time="0.016">
+    </testcase>
+    <testcase classname="Codes claiming should succeed and return code if available" name="Codes claiming should succeed and return code if available" time="0.029">
+    </testcase>
+    <testcase classname="Codes claiming should return 500 if mailer returns net error" name="Codes claiming should return 500 if mailer returns net error" time="0.034">
+    </testcase>
+    <testcase classname="Codes claiming should return 500 if mailer returns bad response" name="Codes claiming should return 500 if mailer returns bad response" time="0.026">
+    </testcase>
+    <testcase classname="Codes claiming should return 500 if mailer returns unsuccessful response" name="Codes claiming should return 500 if mailer returns unsuccessful response" time="0.026">
+    </testcase>
+  </testsuite>
+  <testsuite name="API requests" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:46" time="0.404" tests="9">
+    <testcase classname="API requests should fail if X-Auth-Token is not specified" name="API requests should fail if X-Auth-Token is not specified" time="0.255">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns net error while fetching user" name="API requests should fail if oms-core returns net error while fetching user" time="0.007">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns garbage while fetching user" name="API requests should fail if oms-core returns garbage while fetching user" time="0.008">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns unsuccessful response while fetching user" name="API requests should fail if oms-core returns unsuccessful response while fetching user" time="0.008">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns net error while fetching permissions" name="API requests should fail if oms-core returns net error while fetching permissions" time="0.006">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns garbage while fetching permissions" name="API requests should fail if oms-core returns garbage while fetching permissions" time="0.008">
+    </testcase>
+    <testcase classname="API requests should fail if oms-core returns unsuccessful response while fetching permissions" name="API requests should fail if oms-core returns unsuccessful response while fetching permissions" time="0.008">
+    </testcase>
+    <testcase classname="API requests should fail if body is not JSON" name="API requests should fail if body is not JSON" time="0.005">
+    </testcase>
+    <testcase classname="API requests should fail on accessing non-existant endpoint" name="API requests should fail on accessing non-existant endpoint" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations edition" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:47" time="0.431" tests="5">
+    <testcase classname="Integrations edition should fail if user does not have rights" name="Integrations edition should fail if user does not have rights" time="0.25">
+    </testcase>
+    <testcase classname="Integrations edition should succeed if everything is okay" name="Integrations edition should succeed if everything is okay" time="0.018">
+    </testcase>
+    <testcase classname="Integrations edition should fail on validation errors" name="Integrations edition should fail on validation errors" time="0.016">
+    </testcase>
+    <testcase classname="Integrations edition should return 404 if the integration is not found" name="Integrations edition should return 404 if the integration is not found" time="0.012">
+    </testcase>
+    <testcase classname="Integrations edition should find integration by code" name="Integrations edition should find integration by code" time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories edition" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:47" time="0.419" tests="5">
+    <testcase classname="Categories edition should fail if user does not have rights" name="Categories edition should fail if user does not have rights" time="0.252">
+    </testcase>
+    <testcase classname="Categories edition should succeed if everything is okay" name="Categories edition should succeed if everything is okay" time="0.02">
+    </testcase>
+    <testcase classname="Categories edition should fail on validation errors" name="Categories edition should fail on validation errors" time="0.016">
+    </testcase>
+    <testcase classname="Categories edition should return 404 if the integration is not found" name="Categories edition should return 404 if the integration is not found" time="0.012">
+    </testcase>
+    <testcase classname="Categories edition should return 400 if the integration ID is NaN" name="Categories edition should return 400 if the integration ID is NaN" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations codes population" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:47" time="0.419" tests="4">
+    <testcase classname="Integrations codes population should fail if user does not have rights" name="Integrations codes population should fail if user does not have rights" time="0.248">
+    </testcase>
+    <testcase classname="Integrations codes population should succeed if everything is okay" name="Integrations codes population should succeed if everything is okay" time="0.024">
+    </testcase>
+    <testcase classname="Integrations codes population should fail if body is not an array" name="Integrations codes population should fail if body is not an array" time="0.018">
+    </testcase>
+    <testcase classname="Integrations codes population should fail if body is empty array" name="Integrations codes population should fail if body is empty array" time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations deletion" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:48" time="0.419" tests="4">
+    <testcase classname="Integrations deletion should fail if user does not have rights" name="Integrations deletion should fail if user does not have rights" time="0.252">
+    </testcase>
+    <testcase classname="Integrations deletion should succeed if everything is okay" name="Integrations deletion should succeed if everything is okay" time="0.02">
+    </testcase>
+    <testcase classname="Integrations deletion should return 404 if the integration is not found" name="Integrations deletion should return 404 if the integration is not found" time="0.018">
+    </testcase>
+    <testcase classname="Integrations deletion should find integration by code" name="Integrations deletion should find integration by code" time="0.019">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations displaying" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:48" time="0.391" tests="3">
+    <testcase classname="Integrations displaying should succeed if everything is okay" name="Integrations displaying should succeed if everything is okay" time="0.243">
+    </testcase>
+    <testcase classname="Integrations displaying should return 404 if the integration is not found" name="Integrations displaying should return 404 if the integration is not found" time="0.014">
+    </testcase>
+    <testcase classname="Integrations displaying should find integration by code" name="Integrations displaying should find integration by code" time="0.018">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories deletion" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:49" time="0.398" tests="3">
+    <testcase classname="Categories deletion should fail if user does not have rights" name="Categories deletion should fail if user does not have rights" time="0.242">
+    </testcase>
+    <testcase classname="Categories deletion should succeed if everything is okay" name="Categories deletion should succeed if everything is okay" time="0.021">
+    </testcase>
+    <testcase classname="Categories deletion should return 404 if the integration is not found" name="Categories deletion should return 404 if the integration is not found" time="0.014">
+    </testcase>
+  </testsuite>
+  <testsuite name="Codes displaying" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:49" time="0.44" tests="2">
+    <testcase classname="Codes displaying should return my codes with integrations" name="Codes displaying should return my codes with integrations" time="0.302">
+    </testcase>
+    <testcase classname="Codes displaying should not return other users codes with integrations" name="Codes displaying should not return other users codes with integrations" time="0.024">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories displaying" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:50" time="0.445" tests="3">
+    <testcase classname="Categories displaying should succeed if everything is okay" name="Categories displaying should succeed if everything is okay" time="0.305">
+    </testcase>
+    <testcase classname="Categories displaying should return 404 if the category is not found" name="Categories displaying should return 404 if the category is not found" time="0.017">
+    </testcase>
+    <testcase classname="Categories displaying should return 400 if category ID is NaN" name="Categories displaying should return 400 if category ID is NaN" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="Metrics requests" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:50" time="0.378" tests="2">
+    <testcase classname="Metrics requests should return data correctly on /metrics" name="Metrics requests should return data correctly on /metrics" time="0.259">
+    </testcase>
+    <testcase classname="Metrics requests should return data correctly on /metrics/requests" name="Metrics requests should return data correctly on /metrics/requests" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="Integrations listing" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:50" time="0.409" tests="1">
+    <testcase classname="Integrations listing should succeed and list integrations" name="Integrations listing should succeed and list integrations" time="0.299">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories listing" errors="0" failures="0" skipped="0" timestamp="2026-01-11T11:43:51" time="0.363" tests="1">
+    <testcase classname="Categories listing should succeed and list categories" name="Categories listing should succeed and list categories" time="0.253">
+    </testcase>
+  </testsuite>
+</testsuites>
